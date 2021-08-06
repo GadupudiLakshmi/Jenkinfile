@@ -5,8 +5,12 @@ pipeline {
 			agent {
         		docker { 
 				image 'node:14-alpine'
+				reuseNode true
 		 		}
     		}
+			steps {
+				sh 'npm install'
+			}
 		}
         stage('Build') {
             steps {
