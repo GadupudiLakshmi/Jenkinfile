@@ -1,9 +1,25 @@
 pipeline {
+<<<<<<< HEAD
     agent any 
     environment {
         CI = 'true'
     }
     stages {
+=======
+    agent any
+	stages {
+		stage ('docker') {
+			agent {
+        		docker { 
+				image 'node:14-alpine'
+				reuseNode true
+		 		}
+    		}
+			steps {
+				sh 'npm install'
+			}
+		}
+>>>>>>> master
         stage('Build') {
             steps {
                 sh 'npm install'
