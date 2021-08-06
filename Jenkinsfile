@@ -2,14 +2,13 @@ pipeline {
     agent any
 	stages {
 		stage ('docker') {
-			agent {
-        		docker { 
-				image 'node:14-alpine'
-				reuseNode true
-		 		}
-    		}
 			steps {
-				sh 'npm install'
+				sh 'docker build -t node .'
+			}
+		}
+		stage ('run') {
+			steps {
+				sh 'docker run --rm node'
 			}
 		}
         stage('Build') {
