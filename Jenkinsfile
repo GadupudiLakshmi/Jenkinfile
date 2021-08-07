@@ -1,14 +1,11 @@
 pipeline {
-    agent any
+    agent {
+		docker { image 'node:14-alpine' }
+	}
 	environment {
 		CI = 'true'
 	}
 	stages {
-		stage ('docker') {
-			steps {
-				sh 'docker build -t node .'
-			}
-		}
 		stage ('run') {
 			steps {
 				sh 'docker run -d node'
