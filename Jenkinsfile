@@ -11,7 +11,7 @@ pipeline {
 		}
 		stage ('run') {
 			steps {
-				sh 'docker run node'
+				sh 'docker run -d node'
 			}
 		}
         stage('Build') {
