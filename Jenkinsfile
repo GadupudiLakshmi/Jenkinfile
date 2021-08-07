@@ -6,11 +6,6 @@ pipeline {
 		CI = 'true'
 	}
 	stages {
-		stage ('run') {
-			steps {
-				sh 'docker run -d node'
-			}
-		}
         stage('Build') {
             steps {
                 sh 'node --version'
