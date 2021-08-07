@@ -11,7 +11,7 @@ pipeline {
 		}
 		stage ('run') {
 			steps {
-				sh 'docker run --rm node'
+				sh 'docker run node'
 			}
 		}
         stage('Build') {
