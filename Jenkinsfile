@@ -6,15 +6,15 @@ pipeline {
 		CI = 'true'
 	}
 	stages {
-        stage('Build') {
+		stage ('Build') {
+    		agent {
+				docker { image 'node:14-alpine' }
+			}
+		}
+        stage('Test') {
             steps {
                 sh 'node --version'
 				echo 'hello'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh './jenkins/scripts/test.sh'
             }
         }
         stage('Deliver for development') {
