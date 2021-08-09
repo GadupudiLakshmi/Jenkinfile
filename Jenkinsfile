@@ -5,10 +5,12 @@ pipeline {
 	}
 	stages {
 		stage ('Build') {
+    		agent {
+				docker { image 'node:14-alpine' }
+			}
+
 			steps {
-    			agent {
-					docker { image 'node:14-alpine' }
-				}
+				echo 'installed'
 			}
 		}
         stage('Test') {
